@@ -1,0 +1,23 @@
+{
+  "name": "Curso-ExpressJS",
+  "version": "1.0.0",
+  "description": "Curso practico de ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatyLuPrz/Curso-ExpressJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatyLuPrz/Curso-ExpressJS/issues"
+  },
+  "homepage": "https://github.com/PatyLuPrz/Curso-ExpressJS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
