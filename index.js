@@ -7,7 +7,6 @@ app.set('appName','Curso de Express');
 app.set('port','8080');
 app.set('view engine','ejs');
 
-
 // Middlewares
 function logger(req,res,next){
     console.log(`Route Recived: ${req.protocol}://${req.get('host')}${req.originalUrl}`);
@@ -28,7 +27,6 @@ app.all('/user',(req,res,next)=>{
     console.log('Por aqui paso');
     next();
 });
-
 
 app.get('/about',(req,res)=>{
     const data = [{'nombre':'patricia','correo':'may.patrics@gmail.com'},{'nombre':'mayra','correo':'may.patrics@gmail.com'}];
