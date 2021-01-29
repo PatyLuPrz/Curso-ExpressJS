@@ -1,7 +1,14 @@
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 
+function logger(req,res,next){
+    console.log(`Route Recived: ${req.protocol}://${req.get('host')}${req.originalUrl}`);
+    next();
+}
+
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.listen(8080,()=>{
     console.log('Server on port 8080');
