@@ -2,6 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
+// Settings
+
+
+
+// Middlewares
 function logger(req,res,next){
     console.log(`Route Recived: ${req.protocol}://${req.get('host')}${req.originalUrl}`);
     next();
@@ -14,14 +19,13 @@ app.listen(8080,()=>{
     console.log('Server on port 8080');
 });
 
+// Routes
+
 app.all('/user',(req,res,next)=>{
     console.log('Por aqui paso');
     next();
 });
 
-app.get('/',(req,res)=>{
-    res.send("Hola mundo!");
-});
 
 app.get('/about',(req,res)=>{
     res.send("Get recibido!");
@@ -55,3 +59,5 @@ app.post('/user/:id',(req,res)=>{
     console.log(req.params.id);
     res.send("Post user id recibido!");
 });
+
+app.use(express.static('public'));
