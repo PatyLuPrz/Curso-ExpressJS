@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const app = express();
 
 // Settings
-
+app.set('appName','Curso de Express');
+app.set('port','8080');
+app.set('view engine','ejs');
 
 
 // Middlewares
@@ -15,8 +17,9 @@ function logger(req,res,next){
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.listen(8080,()=>{
-    console.log('Server on port 8080');
+app.listen(app.get('port'),()=>{
+    console.log(app.get('appName'));
+    console.log('Server on port: ',app.get('port'));
 });
 
 // Routes
@@ -28,7 +31,8 @@ app.all('/user',(req,res,next)=>{
 
 
 app.get('/about',(req,res)=>{
-    res.send("Get recibido!");
+    const data = [{'nombre':'patricia','correo':'may.patrics@gmail.com'},{'nombre':'mayra','correo':'may.patrics@gmail.com'}];
+    res.render('index.ejs',{personas:data});
 });
 
 app.post('/post',(req,res)=>{
